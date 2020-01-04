@@ -11,7 +11,7 @@ namespace Jumbler
       return random.Next(min, max);
     }
     
-    public string Randomness(int size, bool lowerCase)
+    public string RandString(int size, bool lowerCase)
     {
       StringBuilder builder = new StringBuilder();
       Random random = new Random();
@@ -30,12 +30,12 @@ namespace Jumbler
       return builder.ToString();
     }
     
-    public string RandomPW()
+    public string RandPW()
     {
       StringBuilder builder = new StringBuilder();
-      builder.Append(Randomness(4, true));
+      builder.Append(RandString(4, true));
       builder.Append(RandNum(1000, 9999));
-      builder.Append(Randomness(2, false));
+      builder.Append(RandString(2, false));
       return builder.ToString();
     }
   }
@@ -45,13 +45,13 @@ namespace Jumbler
     static void Main(string[] args)
     {
       RandomGenerator generator = new RandomGenerator();
-      int rand = generator.RandomNumber(5, 100);
+      int rand = generator.RandNum(5, 100);
       Console.WriteLine($"Random number between 5 and 100 is {rand}.");
       
-      string str = generator.RandomString(10, false);
+      string str = generator.RandString(10, false);
       Console.WriteLine($"Random string of 10 characters is {str}.");
       
-      string pass = generator.RandomPassword();
+      string pass = generator.RandPW();
       Console.WriteLine($"Random string of 6 characters is {pass}.");
       
       Console.ReadKey();
