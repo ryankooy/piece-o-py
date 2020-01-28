@@ -15,43 +15,38 @@ public class Program
     Random random = new Random();
     char ch;
     
-    for (int i = 0; i < size; i++)
+    public string RandString(int size, bool lowerCase)
     {
       ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
       
       builder.Append(ch);
     }
     
-    if (lowerCase)
-      return builder.ToString().ToLower();
-    
-    return builder.ToString();
+    public string RandPW()
+    {
+      StringBuilder builder = new StringBuilder();
+      builder.Append(RandString(4, true));
+      builder.Append(RandNum(1000, 9999));
+      builder.Append(RandString(2, false));
+      return builder.ToString();
+    }
   }
   
   public string RandomPW()
   {
-    StringBuilder builder = new StringBuilder();
-    builder.Append(Randomness(4, true));
-    builder.Append(RandNum(1000, 9999));
-    builder.Append(Randomness(2, false));
-    return builder.ToString();
-  }
-}
-
-class Number
-{
-  static void Main(string[] args)
-  {
-    Program generator = new Program();
-    int rand = generator.RandNum(5, 100);
-    Console.WriteLine($"Random number between 5 and 100 is {rand}.");
-    
-    string str = generator.Randomness(10, false);
-    Console.WriteLine($"Random string of 10 characters is {str}.");
-    
-    string pass = generator.RandomPW();
-    Console.WriteLine($"Random string of 6 characters is {pass}.");
-    
-    Console.ReadKey();
+    static void Main(string[] args)
+    {
+      RandomGenerator generator = new RandomGenerator();
+      int rand = generator.RandNum(5, 100);
+      Console.WriteLine($"Random number between 5 and 100 is {rand}.");
+      
+      string str = generator.RandString(10, false);
+      Console.WriteLine($"Random string of 10 characters is {str}.");
+      
+      string pass = generator.RandPW();
+      Console.WriteLine($"Random string of 6 characters is {pass}.");
+      
+      Console.ReadKey();
+    }
   }
 }
