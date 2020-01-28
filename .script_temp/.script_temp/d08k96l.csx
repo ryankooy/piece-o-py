@@ -1,7 +1,25 @@
 using System;
 using System.Text;
+  
+class Number
+{
+  static void Main(string[] args)
+  {
+    Program generator = new Program();
+    int rand = generator.RandNum(5, 100);
+    Console.WriteLine($"Random number between 5 and 100 is {rand}.");
+    
+    string str = generator.Randomness(10, false);
+    Console.WriteLine($"Random string of 10 characters is {str}.");
+    
+    string pass = generator.RandomPW();
+    Console.WriteLine($"Random string of 6 characters is {pass}.");
+    
+    Console.ReadKey();
+  }
+}
 
-public class Program
+  public class Program
 {
   public int RandNum(int min, int max)
   {
@@ -35,23 +53,5 @@ public class Program
     builder.Append(RandNum(1000, 9999));
     builder.Append(Randomness(2, false));
     return builder.ToString();
-  }
-}
-
-class Number
-{
-  static void Main(string[] args)
-  {
-    Program generator = new Program();
-    int rand = generator.RandNum(5, 100);
-    Console.WriteLine($"Random number between 5 and 100 is {rand}.");
-    
-    string str = generator.Randomness(10, false);
-    Console.WriteLine($"Random string of 10 characters is {str}.");
-    
-    string pass = generator.RandomPW();
-    Console.WriteLine($"Random string of 6 characters is {pass}.");
-    
-    Console.ReadKey();
   }
 }
