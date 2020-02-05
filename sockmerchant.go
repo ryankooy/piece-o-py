@@ -1,18 +1,18 @@
 // This is only a test. Please be advised . . .
-
 package main
 
 import (
 	"fmt"
-	"os"
+	"math/rand"
 )
 
-func sockmerchant(a int, b[]int) int {
-	var h[] int
+func sockmerchant() int {
+	cl := [9]int{rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9)}
 	var c int = 0
-	for _, i := range b {
+	var h []int = append(h, rand.Intn(110))
+	for _, i := range cl {
 		if i == h[i] {
-			h[i] += 1
+			h[i]++
 		}
 		h[i] = 1
 	}
@@ -23,8 +23,9 @@ func sockmerchant(a int, b[]int) int {
 }
 
 func main() {
-	var socknumber = os.Args[3]
 	// TODO: Take in multiple args.
-	// var therest[] int os.Args[4:]
-	fmt.Println("Pairs:", sockmerchant(socknumber, therest))
+	// var sm = os.Args[3]
+	// if sockN, err := strconv.Atoi(os.Args[1]); err == nil {
+	fmt.Println("Pairs:", sockmerchant())
+	// }
 }
