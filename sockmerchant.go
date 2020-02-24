@@ -9,7 +9,7 @@ import (
 func sockmerchant() int {
 	cl := [9]int{rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9), rand.Intn(9)}
 	var c int = 0
-	var h []int = append(h, rand.Intn(110))
+	var h []int = append(c, rand.Intn(110))
 	for _, i := range cl {
 		if i == h[i] {
 			h[i]++

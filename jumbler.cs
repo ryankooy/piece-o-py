@@ -8,28 +8,24 @@ public class Program
     Random random = new Random();
     return random.Next(min, max);
   }
-  
-  public string Randomness(int size, bool lowerCase)
+    
+  public string RandString(int size, bool lowerCase)
   {
     StringBuilder builder = new StringBuilder();
     Random random = new Random();
-    char ch;
+    char ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
     
-    public string RandString(int size, bool lowerCase)
-    {
-      ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
-      
-      builder.Append(ch);
-    }
+    return builder.Append(ch);
+  }
     
-    public string RandPW()
-    {
-      StringBuilder builder = new StringBuilder();
-      builder.Append(RandString(4, true));
-      builder.Append(RandNum(1000, 9999));
-      builder.Append(RandString(2, false));
-      return builder.ToString();
-    }
+  public string RandPW()
+  {
+    StringBuilder builder = new StringBuilder();
+
+    builder.Append(RandString(4, true));
+    builder.Append(RandNum(1000, 9999));
+    builder.Append(RandString(2, false));
+    return builder.ToString();
   }
   
   public string RandomPW()
